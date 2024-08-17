@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap');
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body.loaderNone {
+    overflow: hidden;
+}
+a{
+    text-decoration: none !important;
+}
+/******** Navbar Css Start  ************/
+
+/*
+.navbar{
+    background-color: #0E0B1E !important;
+}
+
+
+.navbar-nav .nav-link{
+    font-family: 'Manrope' !important;
+font-style: normal !important;
+font-weight: 400 !important;
+font-size: 23px !important;
+color: #A4A3AA !important;
+
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
+}
+
+
+*/
+.btn{
+    background: linear-gradient(90deg, #830BFF -4.27%, #5BA3FF 111.4%) !important;
+    border-radius: 39px !important;
+}
+.btn a{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 24px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+/******** Navbar Css End  ************/
+
+
+/*********** Create Your Account Section Css Start  **********/
+
+.headingBlog{ padding: 135px 20px 40px 20px; }
+.cret-sec{
+    background-color: #0E0B1E !important;
+    background-image: url(/frontend-assets/blog-imgs/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.cret-sec h1{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 71px;
+line-height: 70px;
+/* identical to box height, or 98% */
+
+text-transform: capitalize;
+
+color: #FFFFFF;
+}
+.cret-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+color: #BBB8C2;
+margin-top: 20px;
+}
+.cret-sec p span{
+    font-weight: 700;
+    color: #FFFFFF;
+}
+.cret-sec label{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 133% */
+    
+    text-align: center;
+    text-transform: capitalize;
+    
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+.cret-sec input{
+    background-color: transparent !important;
+    border: 2px solid #8548FF !important;
+color: #FFFFFF !important;
+}
+.form-control:focus{
+    box-shadow: none !important;
+    color: #FFFFFF;
+}
+.cret-sec button{
+    border: none !important;
+}
+.btn1{
+    background: linear-gradient(90deg, #830BFF -4.27%, #5BA3FF 111.4%) !important;
+    border-radius: 6px !important;
+    width: 100%;
+    outline: none  !important;
+}
+.btn1 a{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+.lgn-sec a{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+     text-align: center;
+    text-transform: capitalize;   
+    color: #B3B3B3;
+}
+/*********** Create Your Account Section Css End  **********/
+/*********** Fotter Section Css Start  **********/
+.foter-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.foter-sec h3{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 27px;
+/* identical to box height, or 150% */
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+/*********** Fotter Section Css End  **********/
+
+
+
+
+
+
+
+/******** Blog Page Hero Section Css Start  *****/
+.blog-sec{
+    background-color: #0E0B1E !important;
+    background-image: url(/frontend-assets/blog-imgs/blog-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blog-sec h1{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 71px;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+.blog-sec h2{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 71px;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+
+/*********** Blog Cards Css Start  *********/
+
+ul.listTag {
+    margin: 0;
+    padding: 0;
+}
+
+ul.listTag li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 8px 15px 8px;
+}
+
+ul.listTag li a {
+    padding: 10px;
+}
+
+.blogNextPrv {
+    text-align: right;
+}
+
+.boxBlankWhite a {
+    display: inline-block;
+}
+
+.previousBtn,.nextBtn {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    background: #070514 !important;
+    border: 2px solid #21468b;
+    margin-top: 5px;
+    padding: 8px 17px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.card.custom-card .card-img-top {
+    border-radius: 14px;
+    height: 360px;
+    object-fit: cover;
+}
+.card{
+
+    background: rgba(51, 28, 200, 0.1);
+    border: 0.84037px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(9.10401px);
+    border-radius: 13px 13px 42.0185px 42.0185px !important;
+    width: 100% !important;
+    padding: 0;
+    margin-bottom: 20px
+}
+.card-body h3{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 35px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+.card-text{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+/*********** Blog Cards Css End  *********/
+
+
+
+
+
+
+
+/******** Blog Page Hero Section Css End  *****/
+
+/******** Single Blog page Section css Start   *******/
+.sngl-blg{
+    background-color: #0E0B1E !important;
+    background-image: url(/frontend-assets/blog-imgs/blg-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imgWidthHht{ width: 100%; }
+.sngl-blg h1{
+padding: 30px 10px;
+}
+.sid-div{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(9.10401px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 10px;
+}
+.sid-div label{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 29px;
+line-height: 40px;
+/* identical to box height */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #FFFFFF;
+}
+.sid-div input{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+
+text-transform: capitalize;
+color: #4D4D4D;
+}
+.form-control:focus{
+    background: rgba(51, 28, 200, 0.1) !important; 
+}
+.sid-div  h3{
+    font-family: 'Red Hat Display';
+font-style: normal;
+font-weight: 700;
+font-size: 29px;
+line-height: 38px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.accordion-item{
+    background: rgba(51, 28, 200, 0.1) !important;
+border: 0.84037px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 10px !important;
+margin-bottom: 30px;
+}
+.accordion-button{
+    background: rgba(51, 28, 200, 0.1) !important;
+border: 0.84037px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 10px !important;
+
+font-family: 'Red Hat Display';
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 33px;
+/* identical to box height */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.accordion-button:not(.collapsed){
+    box-shadow: none !important;
+    color: #FFFFFF !important;
+}
+.accordion-button:focus{
+    box-shadow: none !important;
+}
+.accordion-body{
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.accordion-button::after{
+    background-image: url(/frontend-assets/blog-imgs/plus.png) !important;
+    background-size: 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+}
+.accordion-button:not(.collapsed)::after{
+    background-image: url(/frontend-assets/blog-imgs/minus.png) !important;
+}
+.clc-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+line-height: 36px;
+text-transform: capitalize;
+margin-top: 13px;
+margin-left: 10px;
+color: #FFFFFF;
+}
+.lft-sd p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 32px;
+/* or 332% */
+
+text-transform: capitalize;
+
+color: #FFFFFF;
+}
+.head-dv{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+margin-top: 100px;
+}
+.head-dv h2{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 33px;
+line-height: 58px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+.head-dv h3{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 33px;
+line-height: 75px;
+/* or 228% */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #EC39F3;
+
+
+}
+.head-dv h4{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 33px;
+line-height: 75px;
+/* or 228% */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.sngl-blg h4{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 45px;
+line-height: 75px;
+text-transform: capitalize;
+margin-top: 30px;
+color: #FFFFFF;
+}
+
+.bnft-sec h1{
+    
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 45px;
+line-height: 75px;
+text-transform: capitalize;
+text-align: left;
+color: #FFFFFF;
+}
+.bnft-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 45px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.bnft-sec ul{
+    list-style: none;
+    padding-left: 0px !important;
+}
+.bnft-sec ul li{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+text-transform: capitalize;
+color: #FFFFFF;
+margin-bottom: 20px;
+}
+.smth-sec{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+}
+.smth-sec h3{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height:29px;
+text-transform: capitalize;
+color: #FFFFFF;
+
+}
+.smth-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+/* or 236% */
+
+text-transform: capitalize;
+
+color: #FFFFFF;
+margin-bottom: 0px;
+}
+.form-sec{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+margin-top: 60px;
+}
+.form-sec h3{
+    
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 45px;
+line-height: 61px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.form-sec p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 42px;
+/* identical to box height, or 236% */
+
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.form-sec{
+    margin-bottom: 60px;
+}
+.form-sec label{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 24px;
+
+text-transform: capitalize;
+margin-top: 20px;
+color: #FFFFFF;
+}
+
+.form-sec input{
+    background-color: transparent !important;
+    border: 2px solid #8548FF !important;
+color: #FFFFFF !important;
+}
+.form-control:focus{
+    box-shadow: none !important;
+    color: #FFFFFF;
+}
+.form-sec textarea{
+    background-color: transparent !important;
+    border: 2px solid #8548FF !important;
+color: #FFFFFF !important;
+width: 100%;
+}
+.rcnt-pst{
+    background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+}
+.rcnt-pst p{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+line-height: 36px;
+margin-top: 12px;
+margin-left: 10px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}
+.rcnt-pst h5{
+    font-family: 'Manrope';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+line-height: 224.1%;
+/* or 38px */
+
+text-transform: capitalize;
+
+color: #FFFFFF;
+}
+.sid-div a{
+background: rgba(51, 28, 200, 0.1);
+border: 0.84037px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+font-family: 'Red Hat Display';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+text-transform: capitalize;
+color: #FFFFFF;
+}
+
+/******** Single Blog page Section css End   *******/
+
+
+
+
+/*********** Mobile Section Responsive start  ********/
+@media screen and (max-width: 767px) {
+
+    ul.listTag li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 12px 5px 12px 5px;
+}
+
+    .card.custom-card .card-img-top {
+    border-radius: 14px;
+    height: auto !important;
+ 
+}
+    .navbar-expand-lg .navbar-nav .nav-link{
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .sid-div label{ font-size: 21px; }
+    .cret-sec h1{
+        font-size: 30px;
+    }
+    .blog-sec h1{
+        font-size: 30px;
+    }
+    .blog-sec h2{
+        font-size: 25px;
+    }
+    .sngl-blg h1{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .lft-sd p{
+      
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .head-dv h2{
+        font-size: 18px;
+        line-height: 30px;
+    
+    }
+    .sngl-blg h4{
+        font-size: 20px;
+    }
+}
+/*********** Mobile Section Responsive End ********/
+/*********** Tab Section Responsive start ********/
+@media (min-width: 768px) and (max-width: 1080px){
+
+    ul.listTag li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 5px 15px 5px;
+}
+
+    .card.custom-card .card-img-top {
+    border-radius: 14px;
+    height: auto !important;
+ 
+}
+    .blog-sec h1{
+        font-size: 65px;
+    }
+    .blog-sec h2{
+        font-size: 55px;
+    }
+    .sngl-blg h1{
+        font-size: 45px;
+    line-height: 65px;
+    }
+    .lft-sd p{   
+        line-height: 35px;
+    }
+    .sid-div label{
+        font-size: 25px;
+    }
+    .accordion-button{
+        font-size: 20px;
+    }
+    .head-dv h2{
+        
+    font-size: 30px;
+    line-height: 55px;
+
+    }
+    .rcnt-pst h5{
+        line-height: 150%;
+    }
+    .sid-div a {
+    font-size: 12px;
+    line-height: 18px;
+  
+}
+
+}
+/*********** Tab Section Responsive End ********/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********** Container Media Querry Start  **************/
+@media screen and (min-width: 1780px) {
+    .container {
+      max-width: 1780px !important;
+    }
+  }
+  /********** Container Media Querry End  **************/

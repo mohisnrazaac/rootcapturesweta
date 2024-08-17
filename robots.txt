@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /index.php
+Sitemap:https://rootcapture.com/sitemap.xml
+
+ 

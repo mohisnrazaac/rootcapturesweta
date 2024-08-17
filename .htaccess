@@ -1,0 +1,33 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /$1/ [L,R] # <- for test, for prod use [L,R=301]
+
+RewriteCond %{REQUEST_URI} login/
+RewriteRule ^ /login.php [L,R]
+
+RewriteCond %{REQUEST_URI} register/
+RewriteRule ^ /register.php [L,R]
+
+RewriteRule ^status/? https://status.rootcapture.com [R=301,L]
+RewriteRule ^invest/? https://invest.rootcapture.com/ [R=301,L]
+
+#RewriteRule ^reset/? /forpass.php [R=301,L]
+#Rewrite everything to https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+ErrorDocument 400 /errorsp/error.html
+ErrorDocument 401 /errorsp/error.html
+ErrorDocument 403 /errorsp/error.html
+ErrorDocument 404 /errorsp/error.html
+ErrorDocument 405 /errorsp/error.html
+ErrorDocument 406 /errorsp/error.html
+ErrorDocument 407 /errorsp/error.html
+ErrorDocument 412 /errorsp/error.html
+ErrorDocument 414 /errorsp/error.html
+ErrorDocument 415 /errorsp/error.html
+ErrorDocument 500 /errorsp/error.html
+ErrorDocument 501 /errorsp/error.html
+ErrorDocument 502 /errorsp/error.html
+ErrorDocument 503 /errorsp/maintenance.html

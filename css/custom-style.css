@@ -1,0 +1,125 @@
+
+
+      #loading {
+          position: fixed;
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          margin: auto;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          text-align: center;
+          opacity: 1;
+          background-color: #1c1b40;
+          z-index: 9999;
+      }
+      #loading-image {
+          position: absolute;
+          top: 11%;
+          left: 30%;
+          z-index: 100;
+          width: 40%;
+      }
+#sidebar ul.menu-categories ul.submenu > li a {
+    width: 235px;
+    white-space: normal;
+}
+
+body .tablenoscroll > tbody > tr > td {
+    white-space: normal;
+}
+
+body.dark .tablenoscroll > tbody > tr > td {
+    white-space: normal;
+}
+
+body div.dataTables_wrapper div.dataTables_filter input {
+    width: 200px;
+    padding-right: 30px;
+}
+
+body.dark div.dataTables_wrapper div.dataTables_filter input {
+    width: 200px;
+    padding-right: 30px;
+}
+
+body .logo-section img.dark-logo {
+    display: inline;
+}
+
+body .logo-section img.light-logo {
+    display: none;
+}
+
+body.dark .logo-section img.dark-logo {
+    display: none;
+}
+
+body.dark .logo-section img.light-logo {
+    display: inline;
+}
+.timer_code{
+    font-size: 18px;
+}
+
+.seprateline{
+    padding: 0px 4px 0px 3px;
+}
+
+h1.text-gradient {
+    background: linear-gradient(to right, #3754db 5%, #a3477b 98%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-weight:bold;
+}
+
+body .footer_login_system .footer-wrapper{
+    Justify-content:center !important
+}
+
+body.dark .footer_login_system .footer-wrapper{
+    Justify-content:center !important
+}
+
+.hide_preloader{
+    display: none;
+}
+
+body .load_screen_light{
+    background: #fff!important;
+}
+
+body .load_screen_dark{
+    background: #1c193f!important;
+}
+
+.bcktolgn span {
+    font-size: 13px;
+}
+.bcktolgn {
+    padding: 5px;
+}
+
+.message_flex{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px){
+    .spinner-grow-new img.dark_preloader{ width: 500px;
+        height: 500px;
+        min-height: 500px;
+
+    }
+    .spinner-grow-new img.light_preloader{ width: 500px;
+        height: 500px;
+        min-height: 500px;
+        object-fit: cover;
+
+    }
+}

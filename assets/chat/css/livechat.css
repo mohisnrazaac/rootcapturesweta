@@ -1,0 +1,18 @@
+.name_user{
+    display: block;
+    height: 100%;
+    line-height: 2.2;
+    padding: 20px;
+    font-size: 24px;
+    border: 1px solid #eee;
+    color: #fff;
+}
+
+.message_section{
+    width: 100%;
+}
+
+.sender-avatar{
+    height: 2.2rem;
+    width: 2.2rem;
+}

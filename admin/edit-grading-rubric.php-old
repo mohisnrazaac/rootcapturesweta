@@ -1,0 +1,414 @@
+<?php
+ob_start();
+require_once '../includes/db.php';
+require_once '../includes/init.php';
+if (!($user -> LoggedIn()))
+{
+    header('location: ../login.php');
+    die();
+}
+if (!($user -> notBanned($odb)))
+{
+    header('location: ../login.php');
+    die();
+}
+
+if ($user -> isAdmin($odb)) {
+
+} else {
+	header('location: ../index.php');
+	die();
+}
+
+    $gradeList = $user->gradeList($odb); 
+    $userList  = $odb -> query("SELECT * FROM `users` WHERE rank > 2")->fetchAll();
+
+    $editId =  $_GET['editId'];
+
+    if (isset($_POST['updateRubric']))
+    {    
+        $title = $_POST['title'];
+        $detail = $_POST['detail'];
+        $redTeam = $_POST['redTeam'];
+        $purpleTeam = $_POST['purpleTeam'];
+        $blueTeam = $_POST['blueTeam'];
+        $assignUser = $_POST['assignUser']; 
+       
+      
+        $errors = array();
+        if ( empty($title) || empty($detail) )
+        {
+            $errors[] = 'Please verify all fields'; 
+        } 
+
+        $grade = false;
+        if( $redTeam != '' ){ $grade = true;} 
+        else if( $purpleTeam != '' ) { $grade = true; }
+        else if( $blueTeam != '' ) { $grade = true; }
+
+        if ( !$grade )
+        {
+            $errors[] = 'Please select grades'; 
+        } 
+
+
+        if (empty($errors))
+        { 
+            $SQLupdate = $odb -> prepare("UPDATE grading_rubric_criteria SET `title` = :title, `detail` = :detail, `redteam_grade` = :redteam_grade, `blueteam_grade` = :blueteam_grade, `purpleteam_grade` = :purpleteam_grade, `assigned_user` = :assigned_user WHERE id = :id");
+            $SQLupdate -> execute(array(':title' => $title, ':detail' => $detail, ':redteam_grade' => $redTeam, ':blueteam_grade' => $blueTeam, ':purpleteam_grade' => $purpleTeam, ':assigned_user' => implode(',',$assignUser), ':id' => $editId));
+
+        }
+       
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>rootCapture - Edit Grading Rubric </title>
+      <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon.ico"/>
+    <link href="../layouts/vertical-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
+    <script src="../layouts/vertical-dark-menu/loader.js"></script>
+    <link href="../css/alter.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="../src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-dark-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../src/plugins/src/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../src/plugins/src/vanillaSelectBox/vanillaSelectBox.css">
+<link rel="stylesheet" type="text/css" href="../src/plugins/css/dark/vanillaSelectBox/custom-vanillaSelectBox.css">
+ <link rel="stylesheet" type="text/css" href="../src/assets/css/dark/forms/switches.css">
+ <link rel="stylesheet" type="text/css" href="../src/assets/css/light/forms/switches.css">
+  <link href="../src/assets/css/dark/components/tabs.css" rel="stylesheet" type="text/css">
+  <link href="../src/assets/css/light/components/tabs.css" rel="stylesheet" type="text/css">
+    <link href="../src/assets/css/dark/users/account-setting.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../src/plugins/src/sweetalerts2/sweetalerts2.css">
+     <link rel="stylesheet" type="text/css" href="../src/assets/css/light/elements/alert.css">
+      <link rel="stylesheet" type="text/css" href="../src/assets/css/dark/elements/alert.css">
+        <link href="../src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
+        <link href="../src/assets/css/light/users/account-setting.css" rel="stylesheet" type="text/css" />
+    
+    <link href="../src/plugins/css/light/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" type="text/css" href="../src/plugins/css/light/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="../src/plugins/css/dark/table/datatable/dt-global_style.css">
+     <!--  BEGIN CUSTOM STYLE FILE  -->
+   
+    <link rel="stylesheet" type="text/css" href="../src/plugins/css/light/vanillaSelectBox/custom-vanillaSelectBox.css">
+
+    
+    <!--  END CUSTOM STYLE FILE  -->
+    <!-- END PAGE LEVEL STYLES -->
+
+</head>
+<body class="layout-boxed">
+    <!-- BEGIN LOADER -->
+    <div id="load_screen"> <div class="loader"> <div class="loader-content">
+        <div class="spinner-grow align-self-center"></div>
+    </div></div></div>
+    <!--  END LOADER -->
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <!--  BEGIN SIDEBAR  --> 
+<?php include '../sidebar.php'; ?>
+        <!--  END SIDEBAR  -->
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="middle-content container-xxl p-0">
+
+                    <!-- BREADCRUMB -->
+                    <div class="page-meta">
+                        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Grading Rubric</li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Grading Rubric</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <br>
+                    <!-- /BREADCRUMB -->
+                       <div class="col-lg-12 col-12 layout-spacing">
+
+                        <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <h2>Add Grading Rubric</h2>
+        
+                                    <div class="animated-underline-content">
+                                        <ul class="nav nav-tabs" id="animateLine" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="animated-underline-home-tab" data-bs-toggle="tab" href="#animated-underline-home" role="tab" aria-controls="animated-underline-home" aria-selected="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Add Grading Rubric</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" id="animateLineContent-4">
+                                <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
+        <?php 
+        if (isset($_POST['updateRubric']))
+        {
+            if(empty($errors)) {
+                echo '<div class="message" id="message"><p><strong>SUCCESS: The grading criteria has been updated! You are now being redirected to the Rubric Management Platform.</strong></div><meta http-equiv="refresh" content="4;url=https://rootcapture.com/admin/manage-grading-rubric.php">';
+                
+                $title = '';
+                $detail = '';
+                $redTeam = '';
+                $blueTeam = '';
+                $purpleTeam = '';
+            } else {
+                echo '<div class="error" id="message"><p><strong>ERROR: </strong>';
+                foreach($errors as $error) {
+                    echo ''.$error.'<br />';
+                }
+                echo '</div>';
+            }
+            
+        }
+
+        // Get Rubric Data id wise
+            
+        $SQLgetRubric = $odb -> prepare("SELECT * FROM `grading_rubric_criteria` WHERE `id` = :editId");
+        $SQLgetRubric -> execute(array(':editId' => $editId));
+        $rubricInfo = $SQLgetRubric -> fetch(PDO::FETCH_ASSOC); 
+
+        $editTitle = '';
+        $editdetail = '';
+        $editredteam_grade = '';
+        $editblueteam_grade = '';
+        $editpurpleteam_grade = '';
+        $edit_assigned_user = '';
+
+        if(!empty($rubricInfo))
+        {    
+            $editTitle = $rubricInfo['title'];
+            $editdetail = $rubricInfo['detail'];
+            $editredteam_grade = $rubricInfo['redteam_grade'];
+            $editblueteam_grade = $rubricInfo['blueteam_grade'];
+            $editpurpleteam_grade = $rubricInfo['purpleteam_grade'];
+            $edit_assigned_user = $rubricInfo['assigned_user'];
+            
+        }
+        else
+        {
+            echo '<div class="error" id="message"><p><strong>ERROR: </strong>Something went wrong</p></div>';
+        }
+        
+        ?>
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+    <form class=" section general-info" method="POST">
+    <div class="info"> 
+        <div align="Center">
+            <h6 class="">Edit Grading Rubric</h6>
+    <div class="row">
+    <div class="col-lg-11 mx-auto">
+        <div class="row">
+    <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+
+    <div class="form">
+    <div class="row">
+
+
+
+   
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="titleAdd"> Title of criteria</label>
+            <input type="text" class="form-control mb-3" value="<?=$editTitle?>" name="title">
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+             <label for="descAdd">Description</label>
+         <textarea class="form-control mb-3" name="detail" rows="2"><?=$editdetail?></textarea>
+        </div>
+        </div>
+    
+     
+        <div class="col-md-6">
+            <div class="form-group  mb-3">
+            <label for="redTeam">Red Team</label>
+            <select class="form-control" name="redTeam" id="selectCust" >
+                <option value=""> Please Select Grade </option>
+               <?php foreach ($gradeList as $grade) { ?>
+                   <option value="<?=$grade['grade']?>" <?php if( $grade['grade']== $editredteam_grade ) echo 'selected'; ?> > <?=$grade['grade']?> </option>
+                <?php } ?>
+            </select>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group  mb-3">
+            <label for="purpleTeam">Purple Team</label>
+             <select class="form-control " name="purpleTeam" id="selectCust1" >
+                <option value=""> Please Select Grade </option>
+                <?php foreach ($gradeList as $grade) { ?>
+                    <option value="<?=$grade['grade']?>" <?php if( $grade['grade']== $editpurpleteam_grade ) echo 'selected'; ?>> <?=$grade['grade']?> </option>
+                <?php } ?>
+            </select>
+        </div>
+        </div>
+   
+     
+        <div class="col-md-6">
+            <div class="form-group  mb-3">
+            <label for="blueTeam">Blue Team</label>
+            <select class="form-control" name="blueTeam" id="selectCust2" >
+                <option value=""> Please Select Grade </option>
+                <?php foreach ($gradeList as $grade) { ?>
+                    <option value="<?=$grade['grade']?>" <?php if( $grade['grade']== $editpurpleteam_grade ) echo 'selected'; ?>> <?=$grade['grade']?> </option> 
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">            
+    <div id="withGroups" class="col-lg-12 layout-spacing optGroup">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Assign User</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <select id="frameworkCMS" name="assignUser[]" multiple size="2" >
+                                    <?php foreach ($userList as $user) { ?>
+                                        <option value="<?=$user['ID']?>" <?php if( in_array($user['ID'],explode(',',$edit_assigned_user)) ){echo 'selected'; } ?>> <?=$user['username']?></option>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+       </div>
+    </div>
+    
+   
+   <div class="col-md-12 mt-4">
+    <div class="form-group text-end">
+    <input type="submit" name="updateRubric" class="btn btn-outline-success btn-lrg">
+</div>
+</div>
+
+
+
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</form>
+</div></div>
+
+
+
+
+                               
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+            <!--  BEGIN FOOTER  -->
+            <div class="footer-wrapper">
+                <div class="footer-section f-section-1">
+                <p class="">Copyright Â© <span class="dynamic-year"><?php echo date('Y'); ?></span> <a target="_blank" href="https://rootcapture.com/">rootCapture</a>, All rights reserved.</p>
+                </div>
+            </div>
+            <!--  END FOOTER  -->
+            <!--  END CONTENT AREA  -->
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+    <!-- END MAIN CONTAINER -->
+    
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="../src/plugins/src/global/vendors.min.js"></script>
+    <script src="../src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../src/plugins/src/mousetrap/mousetrap.min.js"></script>
+    <script src="../layouts/vertical-dark-menu/app.js"></script>
+    <script src="../src/plugins/src/vanillaSelectBox/vanillaSelectBox.js"></script>
+    <script src="../src/plugins/src/vanillaSelectBox/custom-vanillaSelectBox.js"></script>
+    <script src="../src/assets/js/custom.js"></script>
+     <script src="../src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
+    <script src="../src/assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <script>
+        function isNumberKey(evt){
+                var charCode = (evt.which) ? evt.which : evt.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+        }
+
+        $(document).ready(function() {
+            $('#phone').blur( function(){
+                var phone = $('#phone').val(); 
+                if (!(phone.length >= 10 && phone.length <= 14) ) { 
+                    $('#phone').val('');
+                    $('#phone').attr('placeholder','Phone length cannot be less than 10 or greater than 14 digit.');
+                }
+            } );
+
+        })
+
+        selectBox = new vanillaSelectBox("#selectCust", {
+    "keepInlineStyles":true,
+    "maxHeight": 200,
+    "minWidth":481,
+    "search": true,
+    "placeHolder": "Choose..." 
+});
+                selectBox = new vanillaSelectBox("#selectCust2", {
+    "keepInlineStyles":true,
+    "maxHeight": 200,
+    "minWidth":481,
+    "search": true,
+    "placeHolder": "Choose..." 
+});
+                selectBox = new vanillaSelectBox("#selectCust1", {
+    "keepInlineStyles":true,
+    "maxHeight": 200,
+    "minWidth":481,
+    "search": true,
+    "placeHolder": "Choose..." 
+});
+
+let frameworkCMS = new vanillaSelectBox("#frameworkCMS", {
+    "maxHeight": 200,
+    "search": true,
+    translations: { "all": "All", "items": "Selected" },
+    "minWidth":481,
+    "placeHolder": "Choose..." 
+});
+
+    </script>
+</body>
+</html>

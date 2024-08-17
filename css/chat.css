@@ -1,0 +1,121 @@
+span.loggedout {
+  color: #ff0000;
+  font-size: 20px;
+  line-height: 30px;
+}
+span.loggedin {
+  color: #008000;
+  font-size: 20px;
+  line-height: 30px;
+}
+.user-list-box .wrap{
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    -moz-transition: 0.3s height ease;
+    -o-transition: 0.3s height ease;
+    -webkit-transition: 0.3s height ease;
+    transition: 0.3s height ease;
+}
+.user-list-box .wrap p{
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.user-list-box .wrap p span{
+    padding-left: 6px;
+    font-size: 25px;
+    position: relative;
+    top: 2px;
+}
+div#status-options{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 150px;
+    margin: 70px 0 0 0;
+    border-radius: 6px;
+    z-index: 99;
+    line-height: initial;
+    background: #435f7a;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -webkit-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+}
+#status-options:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #435f7a;
+    margin: -8px 0 0 24px;
+}
+#profile .wrap #status-options ul {
+    overflow: hidden;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+}
+#profile .wrap #status-options ul li {
+    padding: 15px 0 30px 18px;
+    display: block;
+    cursor: pointer;
+}
+#profile .wrap #status-options ul li span.status-circle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px 0 0 0;
+}
+#profile .wrap #status-options ul li#status-online span.status-circle {
+    background: #2ecc71;
+}
+#profile .wrap #status-options ul li#status-offline span.status-circle {
+    background: #ff0000;
+}
+#profile .wrap #status-options.active {
+    opacity: 1;
+    visibility: visible;
+    margin: 75px 0 0 0;
+}
+div#conversation.bubble-chats, div#conversation_group.bubble-chats,  div#conversation_thread.bubble-chats {
+    padding: 0 30px;
+}
+.hidechatBlock{
+display:none;
+}
+.displaymsgBlock{
+display:block;
+}
+.meta-info span.unread_count {
+    background: #ff0000;
+    position: relative;
+    left: 7px;
+    padding: 1px 6px;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.bubble_three_dot span.edit {
+    padding-right: 10px;
+}
+.bubble.you .username{
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #009688;
+}
+.badge.badge-danger{
+    background-color: #e7515a!important;
+}
+
+body.light .navbar .navbar-item .nav-item.dropdown.notification-dropdown .nav-link span.badge.badge-danger{
+    background-color: #e7515a!important;
+}
+.dark .nav-tabs .nav-item.show .nav-link, .dark .nav-tabs .nav-link.active{
+    background-color: transparent;
+    color: #fff;
+}

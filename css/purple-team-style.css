@@ -1,0 +1,34 @@
+/*
+	===============================
+			@Import	Function
+	===============================
+*/
+/*
+	===============================
+			@Import	Mixins
+	===============================
+*/
+
+
+body:before {
+  display: none;
+}
+
+body.purple-team-bg {
+  color: #888ea8;
+  height: 100%;
+  font-size: 0.875rem;
+  background: #060818;
+  background-image: linear-gradient(263deg, #A020F0 0%, #d0b2ee 76%);
+}
+
+.purple-team-bg .footer-wrapper, 
+.purple-team-bg .footer-wrapper .footer-section p, 
+.purple-team-bg .footer-wrapper .footer-section a {
+    border-top-left-radius: 0;
+    background: #8e0be1;
+    color: #fff;
+}
+.purple-team-bg .footer-wrapper .footer-section p a {
+    color: #fff;
+}
